@@ -17,6 +17,8 @@ class SystemMessage extends Component {
         return this.props.message.display_name + SystemMessages.LEFTCHAT;
       case 'chat.wait_queue':
         return SystemMessages.QUEUEMESSAGEBEFORE +  msg.wait_queue + SystemMessages.QUEUEMESSAGEAFTER ;
+      case 'chat.info':
+      return SystemMessages.TICKETSENT;
       default:
         return JSON.stringify(msg);
     }

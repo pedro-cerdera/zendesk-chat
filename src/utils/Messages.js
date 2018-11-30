@@ -4,7 +4,7 @@ export default {
     TICKETSENT: 'Ticket recebido com sucesso. Assim que possível será respondido.',
     JOINCHAT: ' entrou na conversa',
     LEFTCHAT: ' saiu da conversa',
-    QUEUEMESSAGEBEFORE: 'Por favor espera, há ',
+    QUEUEMESSAGEBEFORE: 'Por favor espere, há ',
     QUEUEMESSAGEAFTER: ' pessoas na fila de espera',
     RATINGSENT: 'Sua avaliação foi enviada. Obrigado!',
     REQUESTRATING: ' solicitou uma avaliação', 

@@ -224,7 +224,7 @@ class App extends Component {
       this.props.dispatch({
         type: 'synthetic',
         detail: {
-          type: 'agent_send_msg',
+          type: 'system_msg',
           msg
         }
       });

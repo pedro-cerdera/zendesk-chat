@@ -120,7 +120,9 @@ function update(state = DEFAULT_STATE, action) {
 				case 'chat.file':
 				case 'chat.wait_queue':
 				case 'chat.request.rating':
+				case 'chat.info':
 				case 'chat.msg':
+					console.log('chat.msg');
 					// Ensure that triggers are uniquely identified by their display names
 					if (isTrigger(action.detail.nick))
 						action.detail.nick = `agent:trigger:${action.detail.display_name}`;
@@ -210,6 +212,20 @@ function storeHandler(state = DEFAULT_STATE, action) {
 						type: 'chat.msg',
 						display_name: state.visitor.display_name,
 						nick: 'agent:',
+						timestamp: new_timestamp,
+						msg: action.detail.msg,
+						source: 'local'
+					}
+				};
+				break;
+			case 'system_msg':
+				 console.log('system_msg');
+				new_action = {
+					type: 'chat',
+					detail: {
+						type: 'chat.info',
+						display_name: state.visitor.display_name,
+						nick: 'agent:trigger',
 						timestamp: new_timestamp,
 						msg: action.detail.msg,
 						source: 'local'
