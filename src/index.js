@@ -1,12 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import Widget from './components/Widget';
+import { Provider } from 'react-redux'
+import ChatStore from './stores/ChatStore';
+import { styles } from 'ansi-colors';
+import './styles/Widget.scss';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+function initialize() {
+	let widget = document.getElementById('widget');
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
-serviceWorker.unregister();
+	if (!widget) {
+		widget = document.createElement('div');
+		widget.id = 'widget';
+		document.body.appendChild(widget);
+	}
+
+	// Render the main component into the dom
+	ReactDOM.render(
+		<Provider store={ChatStore}>
+			<Widget />
+		</Provider>,
+		widget
+	);
+}
+
+window.onload = initialize;
